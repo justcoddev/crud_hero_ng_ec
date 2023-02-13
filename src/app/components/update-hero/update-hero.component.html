@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="title">PERSONAJES DE DRAGON BALL</span>
+          <button class="btn btn-success float-end" type="button" routerLink="/create-hero">AGREGAR</button>
+        </div>
+      </div>
+      <br>
+      <div class="card">
+        <div class="card-body text-center">
+          <table *ngIf="listHeroes.length > 0" class="table table-striped mt-3">
+            <thead>
+              <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Ciudad</th>
+                <th scope="col">Poder</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let hero of listHeroes">
+                <th>{{hero.codigo}}</th>
+                <td>{{hero.nombre}}</td>
+                <td>{{hero.ciudad}}</td>
+                <td>{{hero.poder}}</td>
+                <td>
+                  <i [routerLink]="['/edit-hero', hero._id]" class="fa-solid fa-pen-to-square"></i>
+                  <i (click)="eliminarHeroes(hero._id)" class="fa-solid fa-trash"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h5 *ngIf="listHeroes.length == 0">Sin registro de personajes.</h5>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

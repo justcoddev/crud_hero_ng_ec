@@ -1,0 +1,56 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-4 offset-lg-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="title">{{title | uppercase}}</span>
+          <form class="row g-2" [formGroup]="heroForm" (ngSubmit)="addHero()">
+            <div class="col-6">
+              <div class="form-label">Código</div>
+              <input type="number" formControlName="codigo" class="form-control" placeholder="Codigo">
+              <div class="text-danger"
+                *ngIf="heroForm.get('codigo')?.hasError('required') && heroForm.get('codigo')?.touched">
+                <span>
+                  El codigo del heroe es <strong>obligatorio</strong>.
+                </span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-label">Nombre</div>
+              <input type="text" formControlName="nombre" class="form-control" placeholder="Bulma">
+              <div class="text-danger"
+                *ngIf="heroForm.get('nombre')?.hasError('required') && heroForm.get('nombre')?.touched">
+                <span>
+                  El nombre del heroe es <strong>obligatorio</strong>.
+                </span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-label">Ciudad</div>
+              <input type="text" formControlName="ciudad" class="form-control" placeholder="Capital del Oeste">
+              <div class="text-danger"
+                *ngIf="heroForm.get('ciudad')?.hasError('required') && heroForm.get('ciudad')?.touched">
+                <span>
+                  La ciudad del heroe es <strong>obligatorio</strong>.
+                </span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-label">Nivel de poder</div>
+              <input type="number" formControlName="poder" class="form-control" placeholder="40000">
+              <div class="text-danger"
+                *ngIf="heroForm.get('poder')?.hasError('required') && heroForm.get('poder')?.touched">
+                <span>
+                  El nivel de poder del heroe es <strong>obligatorio</strong>.
+                </span>
+              </div>
+            </div>
+            <div class="mb-auto d-flex justify-content-around">
+              <button routerLink="/" type="button" class="btn btn-secondary">CANCELAR</button>
+              <button type="submit" [disabled]="heroForm.invalid" class="btn btn-primary">ACEPTAR</button>
+            </div>
+          </form>
+          <div id="texxt" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+      </div>
+      <br>
