@@ -7,7 +7,7 @@ import { Hero } from '../models/hero';
   providedIn: 'root'
 })
 export class HeroService {
-  url = 'http://localhost:4000/api/heroes/'
+  url = 'https://server-crud-hero-ng-ec.onrender.com/api/heroes/'
 
   constructor(private http: HttpClient) { }
 

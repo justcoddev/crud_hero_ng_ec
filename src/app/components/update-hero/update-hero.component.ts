@@ -32,7 +32,7 @@ export class UpdateHeroComponent implements OnInit {
 
   eliminarHeroes(id: any) {
     this._heroService.deleteHero(id).subscribe(data => {
-      this.toastr.error('El heroe fue eliinado con exito', 'Heroe Eliminado');
+      this.toastr.error('El heroe fue eliminado con exito', 'Heroe Eliminado');
       this.obtenerHeroes();
     }, error => {
       console.log(error);
